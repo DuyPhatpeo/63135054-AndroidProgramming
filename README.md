@@ -10,3 +10,5 @@ Hãy thoải mái liên hệ và kết nối với mình. Nếu bạn có ý ki�
 Vui lòng gửi phản hồi của bạn đến [phattranduy00@gmail.com](mailto:phattranduy00@gmail.com).
 
 Cảm ơn bạn đã ghé thăm! 🚀
+
+![Duy Phát](link_to_your_image.gif)
