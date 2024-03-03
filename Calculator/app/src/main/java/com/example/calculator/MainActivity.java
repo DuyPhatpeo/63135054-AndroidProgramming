@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -11,16 +12,28 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    // Khai báo biến tại đây
+    EditText editTextSo1;
+    EditText editTextSo2;
+    EditText editTextKQ;
+    Button nutCong, nutTru, nutNhan, nutChia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TimDieuKhien();
     }
-
+    public void TimDieuKhien(){
+        editTextSo1 = (EditText)findViewById(R.id.edtSo1);
+        editTextSo2 = (EditText)findViewById(R.id.edtSo2);
+        editTextKQ = (EditText)findViewById(R.id.edtKQ);
+        nutCong = (Button)findViewById(R.id.btnCong);
+        nutTru= (Button)findViewById(R.id.btnTru);
+        nutNhan = (Button)findViewById(R.id.btnNhan);
+        nutChia = (Button)findViewById(R.id.btnChia);
+    }
     public void XuLyCong(View view) {
-        EditText editTextSo1 = (EditText)findViewById(R.id.edtSo1);
-        EditText editTextSo2 = (EditText)findViewById(R.id.edtSo2);
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -30,15 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
         float tong = soA + soB;
 
-        EditText editTextKQ = (EditText)findViewById(R.id.edtKQ);
-
         String chuoiKQ = String.valueOf(tong);
         editTextKQ.setText(chuoiKQ);
     }
 
     public void XuLyTru(View view) {
-        EditText editTextSo1 = (EditText)findViewById(R.id.edtSo1);
-        EditText editTextSo2 = (EditText)findViewById(R.id.edtSo2);
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -46,17 +55,14 @@ public class MainActivity extends AppCompatActivity {
         float soA = Float.parseFloat(so1);
         float soB = Float.parseFloat(so2);
 
-        float tong = soA - soB;
+        float tru = soA - soB;
 
-        EditText editTextKQ = (EditText)findViewById(R.id.edtKQ);
 
-        String chuoiKQ = String.valueOf(tong);
+        String chuoiKQ = String.valueOf(tru);
         editTextKQ.setText(chuoiKQ);
     }
 
     public void XuLyNhan(View view) {
-        EditText editTextSo1 = (EditText)findViewById(R.id.edtSo1);
-        EditText editTextSo2 = (EditText)findViewById(R.id.edtSo2);
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -64,17 +70,13 @@ public class MainActivity extends AppCompatActivity {
         float soA = Float.parseFloat(so1);
         float soB = Float.parseFloat(so2);
 
-        float tong = soA * soB;
+        float nhan = soA * soB;
 
-        EditText editTextKQ = (EditText)findViewById(R.id.edtKQ);
-
-        String chuoiKQ = String.valueOf(tong);
+        String chuoiKQ = String.valueOf(nhan);
         editTextKQ.setText(chuoiKQ);
     }
 
     public void XuLyChia(View view) {
-        EditText editTextSo1 = (EditText)findViewById(R.id.edtSo1);
-        EditText editTextSo2 = (EditText)findViewById(R.id.edtSo2);
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -82,11 +84,9 @@ public class MainActivity extends AppCompatActivity {
         float soA = Float.parseFloat(so1);
         float soB = Float.parseFloat(so2);
 
-        float tong = soA / soB;
+        float chia = soA / soB;
 
-        EditText editTextKQ = (EditText)findViewById(R.id.edtKQ);
-
-        String chuoiKQ = String.valueOf(tong);
+        String chuoiKQ = String.valueOf(chia);
         editTextKQ.setText(chuoiKQ);
     }
 }
