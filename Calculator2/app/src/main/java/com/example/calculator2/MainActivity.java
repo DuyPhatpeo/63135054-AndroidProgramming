@@ -1,11 +1,15 @@
-package com.example.calculator;
+package com.example.calculator2;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     // Khai báo biến tại đây
@@ -29,10 +33,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TimDieuKhien();
 
-
+        // Gắn bộ lắng nghe sự kiện cho từng nút
+        nutCong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XuLyCong();
+            }
+        });
+        nutTru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XuLyTru();
+            }
+        });
+        nutNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XuLyNhan();
+            }
+        });
+        nutChia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XuLyChia();
+            }
+        });
     }
-
-    public void XuLyCong(View view) {
+    void XuLyCong() {
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -46,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         editTextKQ.setText(chuoiKQ);
     }
 
-    public void XuLyTru(View view) {
+    void XuLyTru() {
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -61,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         editTextKQ.setText(chuoiKQ);
     }
 
-    public void XuLyNhan(View view) {
+    void XuLyNhan() {
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -75,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         editTextKQ.setText(chuoiKQ);
     }
 
-    public void XuLyChia(View view) {
+    void XuLyChia() {
 
         String so1 = editTextSo1.getText().toString();
         String so2 = editTextSo2.getText().toString();
@@ -88,4 +115,5 @@ public class MainActivity extends AppCompatActivity {
         String chuoiKQ = String.valueOf(chia);
         editTextKQ.setText(chuoiKQ);
     }
+
 }
