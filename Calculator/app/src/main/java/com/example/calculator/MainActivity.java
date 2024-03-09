@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //Onclick
 
     public void XuLyCong(View view) {
 

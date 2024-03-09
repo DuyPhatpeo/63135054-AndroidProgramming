@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         TimDieuKhien();
+        // Var
         nutCong.setOnClickListener(boLangNghe_XuLyCong);
         nutTru.setOnClickListener(boLangNghe_XuLyTru);
         nutNhan.setOnClickListener(boLangNghe_XuLyNhan);

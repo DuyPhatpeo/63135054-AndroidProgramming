@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TimDieuKhien();
-
+        // Anynomous
         // Gắn bộ lắng nghe sự kiện cho từng nút
         nutCong.setOnClickListener(new View.OnClickListener() {
             @Override
