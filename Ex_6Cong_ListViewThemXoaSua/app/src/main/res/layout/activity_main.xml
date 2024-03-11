@@ -27,11 +27,62 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edtTinhThanh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:hint="Nhập tên tỉnh thành VN"/>
+
+    <Button
+        android:id="@+id/btnThem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="Thêm"
+        app:layout_constraintBottom_toTopOf="@+id/lvDanhTT"
+        app:layout_constraintEnd_toStartOf="@+id/btnCapNhat"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTinhThanh"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnCapNhat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="59dp"
+        android:text="Cập nhật"
+        app:layout_constraintBottom_toTopOf="@+id/lvDanhTT"
+        app:layout_constraintEnd_toStartOf="@+id/btnXoa"
+        app:layout_constraintStart_toEndOf="@+id/btnThem"
+        app:layout_constraintTop_toBottomOf="@+id/edtTinhThanh" />
+
+    <Button
+        android:id="@+id/btnXoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="1dp"
+        android:text="Xoá"
+        app:layout_constraintStart_toEndOf="@+id/btnCapNhat"
+        app:layout_constraintTop_toBottomOf="@+id/edtTinhThanh" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
