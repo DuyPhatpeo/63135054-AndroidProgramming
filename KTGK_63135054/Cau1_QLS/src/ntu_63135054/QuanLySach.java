@@ -14,6 +14,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class QuanLySach extends JFrame {
 
@@ -117,18 +119,33 @@ public class QuanLySach extends JFrame {
 		panel_1.add(textField_2);
 		
 		JButton btnThem = new JButton("Thêm");
+		btnThem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ThemSach();
+			}
+		});
 		btnThem.setBackground(new Color(128, 255, 255));
 		btnThem.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnThem.setBounds(20, 349, 124, 24);
 		panel_1.add(btnThem);
 		
 		JButton btnChinhSua = new JButton("Chỉnh sửa");
+		btnChinhSua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ChinhSuaSach();
+			}
+		});
 		btnChinhSua.setBackground(new Color(0, 128, 255));
 		btnChinhSua.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnChinhSua.setBounds(172, 349, 124, 24);
 		panel_1.add(btnChinhSua);
 		
 		JButton btnXoa = new JButton("Xoá");
+		btnXoa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				XoaSach();
+			}
+		});
 		btnXoa.setBackground(new Color(255, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnXoa.setBounds(353, 349, 124, 24);
@@ -167,4 +184,14 @@ public class QuanLySach extends JFrame {
 		bangSach.getColumnModel().getColumn(4).setPreferredWidth(111);
 		bangSach.setFont(new Font("Tahoma", Font.PLAIN, 20));
 	}
+	private void ThemSach() {
+		
+	}
+	private void ChinhSuaSach() {
+		
+	}
+	private void XoaSach() {
+		
+	}
+
 }
