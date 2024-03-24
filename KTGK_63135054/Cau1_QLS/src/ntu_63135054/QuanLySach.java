@@ -7,8 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Container;
+
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -25,22 +29,12 @@ public class QuanLySach extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTable bangSach;
+	private int nextID = 1; 
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					QuanLySach frame = new QuanLySach();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -121,24 +115,15 @@ public class QuanLySach extends JFrame {
 		JButton btnThem = new JButton("Thêm");
 		btnThem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int id = 0;
 				ThemSach();
 			}
 		});
 		btnThem.setBackground(new Color(128, 255, 255));
 		btnThem.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnThem.setBounds(20, 349, 124, 24);
+		btnThem.setBounds(75, 349, 124, 24);
 		panel_1.add(btnThem);
 		
-		JButton btnChinhSua = new JButton("Chỉnh sửa");
-		btnChinhSua.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ChinhSuaSach();
-			}
-		});
-		btnChinhSua.setBackground(new Color(0, 128, 255));
-		btnChinhSua.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnChinhSua.setBounds(172, 349, 124, 24);
-		panel_1.add(btnChinhSua);
 		
 		JButton btnXoa = new JButton("Xoá");
 		btnXoa.addActionListener(new ActionListener() {
@@ -148,7 +133,7 @@ public class QuanLySach extends JFrame {
 		});
 		btnXoa.setBackground(new Color(255, 0, 0));
 		btnXoa.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnXoa.setBounds(353, 349, 124, 24);
+		btnXoa.setBounds(310, 349, 124, 24);
 		panel_1.add(btnXoa);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -157,10 +142,10 @@ public class QuanLySach extends JFrame {
 		
 		bangSach = new JTable();
 		scrollPane.setViewportView(bangSach);
+		bangSach.getTableHeader().setReorderingAllowed(false);
+
 		bangSach.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
 			},
 			new String[] {
 				"ID", "T\u00EAn s\u00E1ch", "T\u00E1c gi\u1EA3", "N\u0103m xu\u1EA5t b\u1EA3n", "Th\u1EC3 lo\u1EA1i"
@@ -185,13 +170,34 @@ public class QuanLySach extends JFrame {
 		bangSach.setFont(new Font("Tahoma", Font.PLAIN, 20));
 	}
 	private void ThemSach() {
-		
+		String tenSach = txtTenSach.getText();
+        String tacGia = textField.getText();
+        String namXuatBan = textField_1.getText();
+        String theLoai = textField_2.getText();
+        
+        // Tạo một mảng mới chứa thông tin sách và ID
+        Object[] newRow = {nextID, tenSach, tacGia, namXuatBan, theLoai};
+        
+        // Thêm hàng vào bảng sách
+        DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+        model.addRow(newRow);
+        
+        // Tăng biến đếm ID cho sách tiếp theo
+        nextID++;
 	}
-	private void ChinhSuaSach() {
-		
-	}
+
 	private void XoaSach() {
-		
+		// Xác định hàng được chọn trong bảng sách
+	    int selectedRow = bangSach.getSelectedRow();
+	    if (selectedRow == -1) {
+	        // Kiểm tra xem người dùng đã chọn hàng nào chưa
+	        JOptionPane.showMessageDialog(this, "Vui lòng chọn sách để xoá.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        return;
+	    }
+	    
+	    // Xoá hàng được chọn khỏi model của bảng sách
+	    DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+	    model.removeRow(selectedRow);
 	}
 
 }
