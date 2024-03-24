@@ -187,7 +187,17 @@ public class QuanLySach extends JFrame {
 	}
 
 	private void XoaSach() {
-		
+		// Xác định hàng được chọn trong bảng sách
+	    int selectedRow = bangSach.getSelectedRow();
+	    if (selectedRow == -1) {
+	        // Kiểm tra xem người dùng đã chọn hàng nào chưa
+	        JOptionPane.showMessageDialog(this, "Vui lòng chọn sách để xoá.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+	        return;
+	    }
+	    
+	    // Xoá hàng được chọn khỏi model của bảng sách
+	    DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+	    model.removeRow(selectedRow);
 	}
 
 }
