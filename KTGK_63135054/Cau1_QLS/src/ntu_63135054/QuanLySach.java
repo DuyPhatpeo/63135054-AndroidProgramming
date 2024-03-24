@@ -171,33 +171,41 @@ public class QuanLySach extends JFrame {
 	}
 	private void ThemSach() {
 		String tenSach = txtTenSach.getText();
-        String tacGia = textField.getText();
-        String namXuatBan = textField_1.getText();
-        String theLoai = textField_2.getText();
-        
-        // Tạo một mảng mới chứa thông tin sách và ID
-        Object[] newRow = {nextID, tenSach, tacGia, namXuatBan, theLoai};
-        
-        // Thêm hàng vào bảng sách
-        DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
-        model.addRow(newRow);
-        
-        // Tăng biến đếm ID cho sách tiếp theo
-        nextID++;
+		String tacGia = textField.getText();
+		String namXuatBan = textField_1.getText();
+		String theLoai = textField_2.getText();
+
+		// Tạo một mảng mới chứa thông tin sách và ID
+		Object[] newRow = {nextID, tenSach, tacGia, namXuatBan, theLoai};
+
+		// Thêm hàng vào bảng sách
+		DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+		model.addRow(newRow);
+
+		// Tăng biến đếm ID cho sách tiếp theo
+		nextID++;
+
+		// Hiển thị thông báo khi thêm thành công
+		JOptionPane.showMessageDialog(null, "Sách đã được thêm thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+
 	}
 
 	private void XoaSach() {
 		// Xác định hàng được chọn trong bảng sách
-	    int selectedRow = bangSach.getSelectedRow();
-	    if (selectedRow == -1) {
-	        // Kiểm tra xem người dùng đã chọn hàng nào chưa
-	        JOptionPane.showMessageDialog(this, "Vui lòng chọn sách để xoá.", "Lỗi", JOptionPane.ERROR_MESSAGE);
-	        return;
-	    }
-	    
-	    // Xoá hàng được chọn khỏi model của bảng sách
-	    DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
-	    model.removeRow(selectedRow);
+		int selectedRow = bangSach.getSelectedRow();
+		if (selectedRow == -1) {
+		    // Kiểm tra xem người dùng đã chọn hàng nào chưa
+		    JOptionPane.showMessageDialog(this, "Vui lòng chọn sách để xoá.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+		    return;
+		}
+
+		// Xoá hàng được chọn khỏi model của bảng sách
+		DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+		model.removeRow(selectedRow);
+
+		// Hiển thị thông báo khi xoá thành công
+		JOptionPane.showMessageDialog(this, "Sách đã được xoá thành công.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+
 	}
 
 }
