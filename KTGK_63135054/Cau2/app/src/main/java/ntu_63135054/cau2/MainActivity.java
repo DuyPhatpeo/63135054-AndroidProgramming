@@ -85,5 +85,29 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Phương thức để chỉnh sửa ghi chú đã có trong danh sách
+    private void editNote() {
+        if (selectedNoteIndex != -1) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Edit Note");
+            final EditText input = new EditText(this);
+            input.setText(noteList.get(selectedNoteIndex));
+            builder.setView(input);
+
+            builder.setPositiveButton("Save", (dialog, which) -> {
+                String editedNote = input.getText().toString().trim();
+                if (!editedNote.isEmpty()) {
+                    noteList.set(selectedNoteIndex, editedNote);
+                    noteAdapter.notifyDataSetChanged();
+                    saveNotesToStorage(); // Lưu ghi chú sau khi chỉnh sửa
+                }
+            });
+
+            builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+            builder.show();
+        }
+    }
+
     
 }
