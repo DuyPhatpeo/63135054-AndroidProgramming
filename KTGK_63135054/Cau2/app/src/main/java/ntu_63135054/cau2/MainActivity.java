@@ -50,7 +50,13 @@ public class MainActivity extends AppCompatActivity {
         addNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNote();
+                String note = noteEditText.getText().toString().trim();
+                if (!note.isEmpty()) {
+                    noteList.add(note);
+                    noteAdapter.notifyDataSetChanged();
+                    noteEditText.getText().clear();
+                    saveNotesToStorage(); // Lưu ghi chú vào SharedPreferences sau khi thêm mới
+                }
             }
         });
 
@@ -59,7 +65,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedNoteIndex = position;
-                editNote();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Edit Note");
+                final EditText input = new EditText(MainActivity.this);
+                input.setText(noteList.get(selectedNoteIndex));
+                builder.setView(input);
+
+                builder.setPositiveButton("Save", (dialog, which) -> {
+                    String editedNote = input.getText().toString().trim();
+                    if (!editedNote.isEmpty()) {
+                        noteList.set(selectedNoteIndex, editedNote);
+                        noteAdapter.notifyDataSetChanged();
+                        saveNotesToStorage(); // Lưu ghi chú sau khi chỉnh sửa
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+                builder.show();
             }
         });
 
@@ -68,55 +91,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedNoteIndex = position;
-                deleteAndSaveNote(); // Gọi phương thức mới để xóa và lưu ghi chú
+                noteList.remove(selectedNoteIndex);
+                noteAdapter.notifyDataSetChanged();
+                saveNotesToStorage(); // Lưu ghi chú sau khi xóa
                 return true;
             }
         });
-    }
-
-    // Phương thức để thêm ghi chú mới vào danh sách
-    private void addNote() {
-        String note = noteEditText.getText().toString().trim();
-        if (!note.isEmpty()) {
-            noteList.add(note);
-            noteAdapter.notifyDataSetChanged();
-            noteEditText.getText().clear();
-            saveNotesToStorage(); // Lưu ghi chú vào SharedPreferences sau khi thêm mới
-        }
-    }
-
-    // Phương thức để chỉnh sửa ghi chú đã có trong danh sách
-    private void editNote() {
-        if (selectedNoteIndex != -1) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Edit Note");
-            final EditText input = new EditText(this);
-            input.setText(noteList.get(selectedNoteIndex));
-            builder.setView(input);
-
-            builder.setPositiveButton("Save", (dialog, which) -> {
-                String editedNote = input.getText().toString().trim();
-                if (!editedNote.isEmpty()) {
-                    noteList.set(selectedNoteIndex, editedNote);
-                    noteAdapter.notifyDataSetChanged();
-                    saveNotesToStorage(); // Lưu ghi chú sau khi chỉnh sửa
-                }
-            });
-
-            builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-
-            builder.show();
-        }
-    }
-
-    // Phương thức để xóa ghi chú đã có trong danh sách và lưu lại
-    private void deleteAndSaveNote() {
-        if (selectedNoteIndex != -1) {
-            noteList.remove(selectedNoteIndex);
-            noteAdapter.notifyDataSetChanged();
-            selectedNoteIndex = -1;
-            saveNotesToStorage(); // Lưu ghi chú sau khi xóa
-        }
     }
 
     // Phương thức để lưu danh sách ghi chú vào SharedPreferences
