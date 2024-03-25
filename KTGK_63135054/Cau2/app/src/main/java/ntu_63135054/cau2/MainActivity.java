@@ -109,5 +109,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    
+    // Phương thức để xóa ghi chú đã có trong danh sách và lưu lại
+    private void deleteAndSaveNote() {
+        if (selectedNoteIndex != -1) {
+            noteList.remove(selectedNoteIndex);
+            noteAdapter.notifyDataSetChanged();
+            selectedNoteIndex = -1;
+            saveNotesToStorage(); // Lưu ghi chú sau khi xóa
+        }
+    }
+
+    // Phương thức để lưu danh sách ghi chú vào SharedPreferences
+    private void saveNotesToStorage() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Set<String> noteSet = new HashSet<>(noteList);
+        editor.putStringSet("noteSet", noteSet);
+        editor.apply();
+    }
+
+    // Phương thức để load danh sách ghi chú từ SharedPreferences
+    private void loadNotesFromStorage() {
+        Set<String> noteSet = sharedPreferences.getStringSet("noteSet", null);
+        if (noteSet != null) {
+            noteList.addAll(noteSet);
+            noteAdapter.notifyDataSetChanged();
+        }
+    }
 }
