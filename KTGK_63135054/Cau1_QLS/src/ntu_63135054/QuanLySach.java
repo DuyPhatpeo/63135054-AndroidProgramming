@@ -170,25 +170,31 @@ public class QuanLySach extends JFrame {
 		bangSach.setFont(new Font("Tahoma", Font.PLAIN, 20));
 	}
 	private void ThemSach() {
-		String tenSach = txtTenSach.getText();
-		String tacGia = textField.getText();
-		String namXuatBan = textField_1.getText();
-		String theLoai = textField_2.getText();
+	    String tenSach = txtTenSach.getText();
+	    String tacGia = textField.getText();
+	    String namXuatBan = textField_1.getText();
+	    String theLoai = textField_2.getText();
 
-		// Tạo một mảng mới chứa thông tin sách và ID
-		Object[] newRow = {nextID, tenSach, tacGia, namXuatBan, theLoai};
+	    // Tạo một mảng mới chứa thông tin sách và ID
+	    Object[] newRow = {nextID, tenSach, tacGia, namXuatBan, theLoai};
 
-		// Thêm hàng vào bảng sách
-		DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
-		model.addRow(newRow);
+	    // Thêm hàng vào bảng sách
+	    DefaultTableModel model = (DefaultTableModel) bangSach.getModel();
+	    model.addRow(newRow);
 
-		// Tăng biến đếm ID cho sách tiếp theo
-		nextID++;
+	    // Tăng biến đếm ID cho sách tiếp theo
+	    nextID++;
 
-		// Hiển thị thông báo khi thêm thành công
-		JOptionPane.showMessageDialog(null, "Sách đã được thêm thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+	    // Hiển thị thông báo khi thêm thành công
+	    JOptionPane.showMessageDialog(null, "Sách đã được thêm thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 
+	    // Xóa các dữ liệu đã nhập
+	    txtTenSach.setText("");
+	    textField.setText("");
+	    textField_1.setText("");
+	    textField_2.setText("");
 	}
+
 
 	private void XoaSach() {
 		// Xác định hàng được chọn trong bảng sách
