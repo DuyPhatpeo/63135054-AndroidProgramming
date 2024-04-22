@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="num1" type="id" />
+    <item name="textView" type="id" />
+    <item name="num2" type="id" />
+    <item name="edt_num1" type="id" />
+    <item name="edt_num2" type="id" />
+    <item name="txt" type="id" />
+    <item name="txt_cau" type="id" />
+    <item name="edt_cau" type="id" />
+    <item name="line2" type="id" />
+    <item name="btn_c" type="id" />
+    <item name="btn_d" type="id" />
+    <item name="btn_a" type="id" />
+    <item name="btn_b" type="id" />
+    <item name="tw_result" type="id" />
+    <item name="btn_rand" type="id" />
+</resources>
