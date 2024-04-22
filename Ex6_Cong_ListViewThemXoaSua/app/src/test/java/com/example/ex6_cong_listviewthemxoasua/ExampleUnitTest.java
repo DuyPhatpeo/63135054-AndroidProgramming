@@ -1,4 +1,4 @@
-package com.example.ex_6cong_listviewthemxoasua;
+package com.example.ex6_cong_listviewthemxoasua;
 
 import org.junit.Test;
 

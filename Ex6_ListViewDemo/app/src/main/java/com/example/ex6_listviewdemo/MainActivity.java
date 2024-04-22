@@ -1,4 +1,4 @@
-package com.example.ex_6_listviewdemo;
+package com.example.ex6_listviewdemo;
 
 import android.os.Bundle;
 import android.view.View;

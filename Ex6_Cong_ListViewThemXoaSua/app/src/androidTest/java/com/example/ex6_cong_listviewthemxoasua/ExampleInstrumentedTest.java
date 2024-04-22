@@ -1,4 +1,4 @@
-package com.example.ex_6cong_listviewthemxoasua;
+package com.example.ex6_cong_listviewthemxoasua;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.ex_6cong_listviewthemxoasua", appContext.getPackageName());
+        assertEquals("com.example.ex6_cong_listviewthemxoasua", appContext.getPackageName());
     }
 }

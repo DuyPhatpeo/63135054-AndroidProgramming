@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ex_6_listviewdemo"
+    namespace = "com.example.ex6_listviewdemo"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ex_6_listviewdemo"
+        applicationId = "com.example.ex6_listviewdemo"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

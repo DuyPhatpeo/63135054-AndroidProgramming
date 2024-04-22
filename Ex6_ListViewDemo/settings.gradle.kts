@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Ex_6_ListViewDemo"
+rootProject.name = "Ex6_ListViewDemo"
 include(":app")

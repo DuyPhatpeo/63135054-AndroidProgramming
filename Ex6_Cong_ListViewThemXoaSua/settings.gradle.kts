@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Ex_6Cong_ListViewThemXoaSua"
+rootProject.name = "Ex6_Cong_ListViewThemXoaSua"
 include(":app")
