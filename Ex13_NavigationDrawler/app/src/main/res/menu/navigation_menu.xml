@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <group
+        android:id="@+id/group1"
+        >
+        <item
+            android:id="@+id/it_home"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/it_product"
+            android:title="Product"
+            />
+        <item
+            android:id="@+id/it_contact"
+            android:title="Contact"
+            />
+        <item
+            android:id="@+id/it_help"
+            android:title="Help"
+            />
+    </group>
+    <group
+        android:id="@+id/group2"
+        >
+
+        <item
+            android:id="@+id/btn_close"
+            android:title="Close"
+            />
+
+    </group>
+
+</menu>
