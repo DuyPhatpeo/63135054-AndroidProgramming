@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@android:drawable/star_big_on"
+        android:title="Home" />
+    <item
+        android:id="@+id/cau1"
+        android:icon="@android:drawable/ic_menu_always_landscape_portrait"
+        android:title="Câu 1" />
+    <item
+        android:id="@+id/cau2"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Câu 2" />
+    <item
+        android:id="@+id/cau3"
+        android:icon="@android:drawable/checkbox_on_background"
+        android:title="Câu 3" />
+    <item
+        android:id="@+id/cau4"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Câu 4" />
+</menu>
